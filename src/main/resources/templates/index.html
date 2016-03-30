@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <link th:href="@{/bootstrap/css/bootstrap.min.css}" href="/bootstrap/css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+        <link th:href="@{/css/main.css}" href="/css/main.css"  rel="stylesheet" type="text/css"  />
+        <script type="text/javascript" src="/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+        <title>BitBetGo admin </title>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">BitBetGo Admin</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/addMatch">Add match</a></li>
+                        <li><a href="#about">Help</a></li>
+                        <li><a th:href="@{/login?logout}">Sign out</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        
+    </body>
+</html>

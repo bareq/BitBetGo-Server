@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <link th:href="@{/bootstrap/css/bootstrap.min.css}" href="/bootstrap/css/bootstrap.min.css"  rel="stylesheet" type="text/css"  />
+        <link th:href="@{/datepicker/css/bootstrap-datepicker.css}" href="/datepicker/css/bootstrap-datepicker.css"  rel="stylesheet" type="text/css"  />
+        <link th:href="@{/css/main.css}" href="/css/main.css"  rel="stylesheet" type="text/css"  />
+        <script type="text/javascript" src="/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+        <script type="text/javascript" src="/datepicker/js/bootstrap-datepicker.min.js" th:src="@{/datepicker/js/bootstrap-datepicker.min.js}"></script>
+        <title>BitBetGo admin - add match </title>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">BitBetGo Admin</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/addMatch">Add match</a></li>
+                        <li><a href="#about">Help</a></li>
+                        <li><a th:href="@{/login?logout}">Sign out</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+
+        <div class="container">
+            <div th:if="${param.success}">
+                <div class="alert alert-success" role="alert">Successfully added</div>
+            </div>
+            <div th:if="${param.fail}">
+                <div class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    Error while adding new match
+                </div>
+            </div>
+            <div th:if="${param.fill}">
+                <div class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    Please fill form
+                </div>
+            </div>
+            <h2>Add new match</h2>
+            <form role="form" method="POST" enctype="multipart/form-data" action="/upload">
+                <div class="form-group">
+                    <label>First team name:</label>
+                    <input type="text" class="form-control" name="team1" placeholder="Enter first team name"/>
+                </div>
+                <div class="form-group">
+                    <label>Second team name:</label>
+                    <input type="text" class="form-control" name="team2" placeholder="Enter second team name"/>
+                </div>
+                <div class="form-group">
+                    <label>First team image</label>
+                    <input name="image1" type="file" class="file"/>
+                </div>
+                <div class="form-group">
+                    <label>Second team image</label>
+                    <input name="image2" type="file" class="file"/>
+                </div>
+                <div class="form-group">
+                    <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                        <label> Date: </label>
+                        <input type="text" name="match_date" class="form-control" placeholder="Enter date" />
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Time:</label>
+                    <input type="text" class="form-control" name="match_time" placeholder="Enter time of begin"/>
+                </div>
+                <div class="form-group">
+                    <label>League:</label>
+                    <input type="text" class="form-control" name="league" placeholder="Enter league name"/>
+                </div>
+                <button type="submit" class="btn btn-default">Add</button>
+            </form>
+
+        </div>
+
+    </body>
+</html>
